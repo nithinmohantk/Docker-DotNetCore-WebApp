@@ -1,13 +1,15 @@
 ﻿### Useful docker-compose commands 
 
 
-``docker-compose ps # lists all services (id, name)
+
+
+docker-compose ps # lists all services (id, name)
 docker-compose stop <id/name> #this will stop only the selected container
 docker-compose rm <id/name> # this will remove the docker container permanently 
 docker-compose up # builds/rebuilds all not already built container 
 
 
-docker-compose up -d --force-recreate --build``
+docker-compose up -d --force-recreate --build
 
 
 
