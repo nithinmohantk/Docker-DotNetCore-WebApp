@@ -29,3 +29,11 @@ Options:
  ```console 
 docker-compose restart 
 ```
+### Stop and Remove Container(s)
+```console 
+$ docker-compose stop dotnetcorebundle_contoso.api_1,
+$ docker-compose kill dotnetcorebundle_contoso.api_1,
+$ docker stop dotnetcorebundle_contoso.api_1,
+$ docker rm -f dotnetcorebundle_contoso.api_1,
+
+```
