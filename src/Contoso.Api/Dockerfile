@@ -5,10 +5,10 @@ EXPOSE 443
 
 FROM microsoft/dotnet:2.2-sdk AS build
 WORKDIR /src
-COPY DotNetCoreBundle/Contoso.Api.csproj DotNetCoreBundle/
-RUN dotnet restore DotNetCoreBundle/Contoso.Api.csproj
+COPY Contoso.Api/Contoso.Api.csproj Contoso.Api/
+RUN dotnet restore Contoso.Api/Contoso.Api.csproj
 COPY . .
-WORKDIR /src/DotNetCoreBundle
+WORKDIR /src/Contoso.Api
 RUN dotnet build Contoso.Api.csproj -c Release -o /app
 
 FROM build AS publish
