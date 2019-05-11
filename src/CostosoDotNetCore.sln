@@ -1,11 +1,16 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Api", "DotNetCoreBundle\Contoso.Api.csproj", "{5419E71F-C4CF-4203-B607-8F3172D7BB64}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Api", "Contoso.Api\Contoso.Api.csproj", "{5419E71F-C4CF-4203-B607-8F3172D7BB64}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A27782D1-14BC-4842-96BE-F3A5E2D56B01}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Web", "Contoso.Web\Contoso.Web.csproj", "{A9D711EF-744B-4E30-B0C6-DB1650490412}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AFEC1200-AEBA-43FE-82A6-D0ACCE065CD0}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

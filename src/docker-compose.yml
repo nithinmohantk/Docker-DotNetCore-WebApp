@@ -19,7 +19,7 @@ services:
             - "8444:443"
     build:
       context: .
-      dockerfile: DotNetCoreBundle/Dockerfile
+      dockerfile: Contoso.Api/Dockerfile
     depends_on:
             - contoso.db
   contoso.db:
