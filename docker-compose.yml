@@ -1,0 +1,29 @@
+﻿version: '3.4'
+
+services:
+  contoso.web:
+    image: ${DOCKER_REGISTRY-}contoso-web
+    ports:
+            - "8080:80"
+            - "8443:443"
+    build:
+      context: .
+      dockerfile: Contoso.Web/Dockerfile
+    depends_on:
+            - contoso.db
+            - contoso.api
+  contoso.api:
+    image: ${DOCKER_REGISTRY-}contoso-api
+    ports:
+            - "8081:80"
+            - "8444:443"
+    build:
+      context: .
+      dockerfile: DotNetCoreBundle/Dockerfile
+    depends_on:
+            - contoso.db
+  contoso.db:
+        image: "mcr.microsoft.com/mssql/server"
+        environment:
+            SA_PASSWORD: "Developer@123#"
+            ACCEPT_EULA: "Y"
