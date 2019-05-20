@@ -93,3 +93,18 @@ kubectl set image deployment/my-app  my-app=gcr.io/some-repo/my-app:v2
 #5. Clean Up 
 kubectl delete deployment my-app
 kubectl delete svc my-app
+
+```
+
+```console 
+
+#
+# Clean up dying pods
+#
+pods=$( kubectl get pods | grep -v Running | tail -n +2 | awk -F " " '{print $1}' )
+for pod in $pods;
+do
+    kubectl delete pod $pod --grace-period=0 --force 
+done
+
+```
