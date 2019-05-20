@@ -1,8 +1,8 @@
-﻿version: '3.4'
+﻿version: '3.0'
 
 services:
-  contoso.web:
-    image: ${DOCKER_REGISTRY-}contoso-web
+  contoso-web:
+    image: vslaunch-contoso-web-v2
     ports:
             - "8080:80"
             - "8443:443"
@@ -10,10 +10,11 @@ services:
       context: .
       dockerfile: Contoso.Web/Dockerfile
     depends_on:
-            - contoso.db
-            - contoso.api
-  contoso.api:
-    image: ${DOCKER_REGISTRY-}contoso-api
+            - contoso-db
+            - contoso-api
+    
+  contoso-api:
+    image: vslaunch-contoso-api-v2
     ports:
             - "8081:80"
             - "8444:443"
@@ -21,8 +22,9 @@ services:
       context: .
       dockerfile: Contoso.Api/Dockerfile
     depends_on:
-            - contoso.db
-  contoso.db:
+            - contoso-db
+    
+  contoso-db:
         image: "mcr.microsoft.com/mssql/server"
         environment:
             SA_PASSWORD: "Developer@123#"
