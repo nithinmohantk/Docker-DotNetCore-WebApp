@@ -76,9 +76,7 @@ kubectl get pods
 
 
 ### Pushing the container to DockerHub
-
 ```console 
-
 docker login
 
 docker tag bb38976d03cf thingxcloud/vslaunch-contoso-api-demo:v1
@@ -107,11 +105,9 @@ kubectl set image deployment/my-app  my-app=gcr.io/some-repo/my-app:v2
 #5. Clean Up 
 kubectl delete deployment my-app
 kubectl delete svc my-app
-
 ```
 
 ```console 
-
 #
 # Clean up dying pods
 #
@@ -120,5 +116,4 @@ for pod in $pods;
 do
     kubectl delete pod $pod --grace-period=0 --force 
 done
-
 ```
