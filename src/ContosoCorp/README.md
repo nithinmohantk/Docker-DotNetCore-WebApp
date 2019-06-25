@@ -41,7 +41,7 @@ docker rm -f dotnetcorebundle_contoso.api_1
 
 ### Install minikube
 
-```
+```console 
 # Using PowerShell (run as Administrator)
 choco install minikube
 
@@ -53,7 +53,7 @@ minikube get-k8s-versions
 
 # Update minikube
 minikube update-check
-
+```
 
 ### Working with Kubernetes
 
