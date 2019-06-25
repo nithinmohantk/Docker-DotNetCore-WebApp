@@ -93,16 +93,16 @@ kubectl run my-app --image=gcr.io/some-repo/my-app:v1 --port=3000
 
 kubectl get pods
 
-#2. Step 2: Expose the Kubernetes Deployment through a Load Balancer
+# 2. Step 2: Expose the Kubernetes Deployment through a Load Balancer
 kubectl expose deployment my-app --type=LoadBalancer --port=8080 --target-port=3000
 
-#3. Step 3: Find the external IP of your Container
+# 3. Step 3: Find the external IP of your Container
 kubectl get svc
 
-#4. (Extra) Step 4: Use Kubernetes Rolling Updates
+# 4. (Extra) Step 4: Use Kubernetes Rolling Updates
 kubectl set image deployment/my-app  my-app=gcr.io/some-repo/my-app:v2
 
-#5. Clean Up 
+# 5. Clean Up 
 kubectl delete deployment my-app
 kubectl delete svc my-app
 ```
