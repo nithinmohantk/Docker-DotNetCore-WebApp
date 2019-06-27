@@ -2,28 +2,31 @@
 
 services:
   contoso-web:
-    image: vslaunch-contoso-web-v2
-    ports:
-            - "8080:80"
-            - "8443:443"
-    build:
-      context: .
-      dockerfile: Contoso.Web/Dockerfile
-    depends_on:
-            - contoso-db
-            - contoso-api
-    
+          build:
+            context: .
+            dockerfile: Contoso.Web/Dockerfile
+
+          image: vslaunch/contoso-web
+          ports:
+                  - "8080:80"
+                  - "8443:443"
+   
+          depends_on:
+                  - contoso-db
+                  - contoso-api
+  
   contoso-api:
-    image: vslaunch-contoso-api-v2
-    ports:
-            - "8081:80"
-            - "8444:443"
-    build:
-      context: .
-      dockerfile: Contoso.Api/Dockerfile
-    depends_on:
-            - contoso-db
+          build:
+            context: .
+            dockerfile: Contoso.Api/Dockerfile
+
+          image: vslaunch/contoso-api
+          ports:
+                  - "8081:80"
+                  - "8444:443"
     
+          depends_on:
+                  - contoso-db
   contoso-db:
         image: "mcr.microsoft.com/mssql/server"
         environment:
