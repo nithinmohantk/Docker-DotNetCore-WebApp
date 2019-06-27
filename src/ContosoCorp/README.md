@@ -16,6 +16,10 @@ docker-compose up -d --force-recreate --build
 ```
 
 ```console
+docker-compose -f docker-compose.yml up
+```
+
+```console
 Options:
   -d                  Detached mode: Run containers in the background,
                       print new container names. Incompatible with
