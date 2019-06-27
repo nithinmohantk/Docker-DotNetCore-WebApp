@@ -16,6 +16,10 @@ docker-compose up -d --force-recreate --build
 ```
 
 ```console
+docker-compose -f docker-compose.yml up
+```
+
+```console
 Options:
   -d                  Detached mode: Run containers in the background,
                       print new container names. Incompatible with
@@ -39,7 +43,21 @@ docker rm -f dotnetcorebundle_contoso.api_1
 
 ```
 
+### Install minikube
 
+```console 
+# Using PowerShell (run as Administrator)
+choco install minikube
+
+# Test minikube installation
+minikube version
+
+# Check available Version of Kubernetes
+minikube get-k8s-versions
+
+# Update minikube
+minikube update-check
+```
 
 ### Working with Kubernetes
 
@@ -62,9 +80,7 @@ kubectl get pods
 
 
 ### Pushing the container to DockerHub
-
 ```console 
-
 docker login
 
 docker tag bb38976d03cf thingxcloud/vslaunch-contoso-api-demo:v1
@@ -77,27 +93,25 @@ docker push thingxcloud/vslaunch-contoso-api-demo
 
 ```console
 # 1. Step 1: Create Pods
-kubectl run my-app --image=gcr.io/some-repo/my-app:v1 --port=3000
+kubectl run my-app --image=thingxcloud/vslaunch-contoso-api-demo:v1 --port=3000
 
 kubectl get pods
 
-#2. Step 2: Expose the Kubernetes Deployment through a Load Balancer
+# 2. Step 2: Expose the Kubernetes Deployment through a Load Balancer
 kubectl expose deployment my-app --type=LoadBalancer --port=8080 --target-port=3000
 
-#3. Step 3: Find the external IP of your Container
+# 3. Step 3: Find the external IP of your Container
 kubectl get svc
 
-#4. (Extra) Step 4: Use Kubernetes Rolling Updates
-kubectl set image deployment/my-app  my-app=gcr.io/some-repo/my-app:v2
+# 4. (Extra) Step 4: Use Kubernetes Rolling Updates
+kubectl set image deployment/my-app  my-app=thingxcloud/vslaunch-contoso-api-demo:latest
 
-#5. Clean Up 
+# 5. Clean Up 
 kubectl delete deployment my-app
 kubectl delete svc my-app
-
 ```
 
 ```console 
-
 #
 # Clean up dying pods
 #
@@ -106,5 +120,4 @@ for pod in $pods;
 do
     kubectl delete pod $pod --grace-period=0 --force 
 done
-
 ```
