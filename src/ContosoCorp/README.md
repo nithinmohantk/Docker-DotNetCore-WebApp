@@ -89,7 +89,7 @@ docker push thingxcloud/vslaunch-contoso-api-demo
 
 ```console
 # 1. Step 1: Create Pods
-kubectl run my-app --image=gcr.io/some-repo/my-app:v1 --port=3000
+kubectl run my-app --image=thingxcloud/vslaunch-contoso-api-demo:v1 --port=3000
 
 kubectl get pods
 
@@ -100,7 +100,7 @@ kubectl expose deployment my-app --type=LoadBalancer --port=8080 --target-port=3
 kubectl get svc
 
 # 4. (Extra) Step 4: Use Kubernetes Rolling Updates
-kubectl set image deployment/my-app  my-app=gcr.io/some-repo/my-app:v2
+kubectl set image deployment/my-app  my-app=thingxcloud/vslaunch-contoso-api-demo:latest
 
 # 5. Clean Up 
 kubectl delete deployment my-app
